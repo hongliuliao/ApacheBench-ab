@@ -1,14 +1,7 @@
 APR=apr-1.5.2
 APRUTIL=apr-util-1.5.4
 
-all:$(APR) $(APRUTIL) buildapr
-
-$(APR):
-	wget http://apache.techartifact.com/mirror//apr/$(APR).tar.gz
-	tar -xf $(APR).tar.gz
-$(APRUTIL):
-	wget http://apache.techartifact.com/mirror//apr/$(APRUTIL).tar.gz
-	tar -xf $(APRUTIL).tar.gz
+all: buildapr
 
 buildapr:
 	cp Makefile_apr $(APR)

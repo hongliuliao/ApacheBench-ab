@@ -1,3 +1,5 @@
+.PHONY: ab
+
 APR_INC_PATH=./apr/apr-1.5.2/include
 APR_UTIL_INC_PATH=./apr/apr-util-1.5.4/include
 APR_LIB_PATH=./apr/apr-1.5.2/.libs/libapr-1.a

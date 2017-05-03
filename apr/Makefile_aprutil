@@ -4,4 +4,4 @@ libaprutil-1.la:
 	PWD=`pwd`
 	./configure --prefix=$(PWD)/apr/aprutil-build --with-apr=$(PWD)/apr/apr-build
 	make
-	make install
+#make install

@@ -4,4 +4,4 @@ libapr-1.la:
 	PWD=`pwd`
 	./configure --prefix=$(PWD)/apr/apr-build
 	make
-	make install
+#make install

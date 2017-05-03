@@ -10,6 +10,5 @@ buildapr:
 	make -C $(APRUTIL) -f Makefile_aprutil
 
 clean:
-	rm -rf apr-*
-	rm -rf aprutil-*
-	
+	make -C ${APR} clean
+	make -C ${APRUTIL} clean

@@ -364,7 +364,7 @@ apr_size_t reqlen;
 char buffer[8192];
 
 /* interesting percentiles */
-int percs[] = {50, 66, 75, 80, 90, 95, 98, 99, 100};
+double percs[] = {50, 66, 75, 80, 90, 95, 98, 99, 99.5, 99.9, 99.99, 100};
 
 struct connection *con;     /* connection array */
 struct data *stats;         /* data for each request */
@@ -984,14 +984,14 @@ static void output_results(int sig)
         /* Sorted on total connect times */
         if (percentile && (done > 1)) {
             printf("\nPercentage of the requests served within a certain time (ms)\n");
-            for (i = 0; i < sizeof(percs) / sizeof(int); i++) {
+            for (i = 0; i < sizeof(percs) / sizeof(double); i++) {
                 if (percs[i] <= 0)
                     printf(" 0%%  <0> (never)\n");
                 else if (percs[i] >= 100)
                     printf(" 100%%  %5" APR_TIME_T_FMT " (longest request)\n",
                            ap_round_ms(stats[done - 1].time));
                 else
-                    printf("  %d%%  %5" APR_TIME_T_FMT "\n", percs[i],
+                    printf("  %.2f%%  %5" APR_TIME_T_FMT "\n", percs[i],
                            ap_round_ms(stats[(int) (done * percs[i] / 100)].time));
             }
         }
